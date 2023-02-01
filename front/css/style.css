@@ -1,0 +1,241 @@
+@charset "UTF-8";
+/* Обнуляющий стиль */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,700;1,400&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+img {
+  vertical-align: top;
+}
+
+/* ================================================================ */
+body {
+  background-color: #414040;
+  font-family: 'Mulish', sans-serif;
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  position: relative;
+}
+
+.table {
+  background-color: #eef0ff;
+  text-align: center;
+}
+
+.table__selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+  padding: 6px 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.table__columns {
+  padding: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #cccfe2;
+}
+
+.table__column {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 20%;
+          flex: 0 1 20%;
+}
+
+.table__value {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.table__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.table__list-item {
+  padding: 5px 0;
+}
+
+.table__list-item:nth-child(odd) {
+  background-color: #eff0fa;
+}
+
+.table__average {
+  font-weight: 700;
+  padding: 10px 0;
+  background-color: #cccfe2;
+}
+
+.table__average span {
+  color: #ac1d1d;
+}
+
+.table__average p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.select {
+  background-color: #575555;
+  padding: 10px 0;
+}
+
+.select__label {
+  padding: 0 10px;
+}
+
+.select__day {
+  padding: 3px 5px;
+  max-width: 45px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.select__input {
+  padding: 3px 5px;
+  border-radius: 6px;
+  margin-right: 4px;
+  outline: none;
+}
+
+.select__submit {
+  padding: 4px 8px;
+  border-radius: 9px;
+  cursor: pointer;
+  color: #050505;
+  background-image: -webkit-linear-gradient(45deg, #ebebf8 50%, transparent 50%);
+  background-image: -o-linear-gradient(45deg, #ebebf8 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #ebebf8 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 220ms ease-in-out;
+  -o-transition: background 220ms ease-in-out;
+  transition: background 220ms ease-in-out;
+}
+
+.select__submit:hover {
+  background-position: 0;
+}
+
+.add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.footer__title {
+  background-color: #575555;
+  text-align: center;
+  font-weight: 700;
+  padding: 5px 0;
+  color: #0e0e0e;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.add-button {
+  margin-left: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hide {
+  -webkit-transform: translate(0, 40px);
+      -ms-transform: translate(0, 40px);
+          transform: translate(0, 40px);
+}
+
+.show {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.out-data {
+  background-color: #eef0ff;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.out-data__title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.out-data__span {
+  color: #391e8a;
+}
