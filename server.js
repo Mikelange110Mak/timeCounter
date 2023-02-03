@@ -19,7 +19,6 @@ app.post('/get_data', (req, res) => {
 
 
 
-
 //Server run:
 const port = 3000;
 app.listen(port, () => {

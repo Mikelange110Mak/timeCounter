@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,700;1,400&display=swap");
 
 
+
 body {
    background-color: #414040;
    font-family: 'Mulish', sans-serif;
@@ -158,6 +159,7 @@ body {
    display: flex;
    justify-content: center;
    transition: 0.3s;
+   outline: 1px solid rgb(73, 73, 73);
 }
 
 .footer__title {
@@ -167,6 +169,13 @@ body {
    padding: 5px 0;
    color: #0e0e0e;
    transition: 0.3s;
+
+   button {
+      width: 100%;
+      padding: 3px 6px;
+      //border-radius: 8px;
+      cursor: pointer;
+   }
 }
 
 .add-button {

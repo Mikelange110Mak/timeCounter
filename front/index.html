@@ -86,7 +86,8 @@
          </div>
          <div class="select add hide">
             <label class="select__label" for="addDay">День</label>
-            <input class="select__day" name="addDay" type="number" required min="1" max="31" autocomplete="off">
+            <input class="select__day" name="addDay" type="number" required min="1" max="31" maxlength="2"
+               autocomplete="off">
             <label class="select__label" for="addMonth">Месяц</label>
             <select class="select__input" name="addMonth" id="addMonth">
                <option class="select__month-item" value="01">Январь</option>
@@ -108,7 +109,8 @@
                <option class="select__year-item" value="2023">2023</option>
             </select>
             <label class="select__label" for="addTime">Минут</label>
-            <input class="select__day" name="addTime" type="number" required min="5" max="999" autocomplete="off">
+            <input class="select__day" name="addTime" type="number" required min="1" max="999" maxlength="3"
+               autocomplete="off">
             <label class="select__label" for="addRate">Оценка</label>
             <select class="select__input" name="addRate" id="rate">
                <option class="select__rate-item" value="1">1</option>

@@ -43,6 +43,19 @@ img {
   vertical-align: top;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+}
+
 /* ================================================================ */
 body {
   background-color: #414040;
@@ -192,6 +205,7 @@ body {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  outline: 1px solid #494949;
 }
 
 .footer__title {
@@ -203,6 +217,12 @@ body {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+}
+
+.footer__title button {
+  width: 100%;
+  padding: 3px 6px;
+  cursor: pointer;
 }
 
 .add-button {

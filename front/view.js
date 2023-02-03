@@ -99,11 +99,18 @@ async function drawData(storage) {
 drawData()
 
 elementFooterBtn.addEventListener('click', () => {
-   formAddDay.classList.add('show')
-   formAddDay.classList.remove('hide')
-   footerTitleBlock.classList.remove('hide')
-   footerTitleBlock.classList.add('show')
+   formAddDay.classList.toggle('show')
+   footerTitleBlock.classList.toggle('show')
+   if (footerTitleBlock.classList.contains('show')) elementFooterBtn.textContent = 'Скрыть'
+   else elementFooterBtn.textContent = 'Добавить день'
 })
+
+document.querySelectorAll('input[type="number"]').forEach(input => {
+   input.oninput = () => {
+      if (input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength)
+   }
+})
+
 
 
 
