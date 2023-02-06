@@ -22,6 +22,26 @@ body {
 }
 
 //Project Styles:
+.header {
+   background-color: #575555;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 0 15px;
+
+   .call-modal {
+      display: flex;
+      align-items: center;
+
+      &__button {
+         padding: 4px 8px;
+         border-radius: 9px;
+         cursor: pointer;
+      }
+   }
+
+}
+
 
 .table {
 
@@ -98,8 +118,7 @@ body {
 }
 
 .select {
-
-   background-color: #575555;
+   flex: 0 1 50%;
    padding: 10px 0;
 
    &__label {

@@ -17,6 +17,16 @@ app.post('/get_data', (req, res) => {
    res.send(storage[year][month])
 })
 
+app.post('/post_data', (req, res) => {
+   let day = req.body.addDay
+   let month = req.body.addMonth
+   let year = req.body.addYear
+   let time = req.body.addTime
+   let rate = req.body.addRate
+   const obj = { day, month, year, time, rate }
+   console.log(obj);
+   res.send(obj)
+})
 
 
 //Server run:

@@ -15,7 +15,8 @@ const dayList = document.querySelector('.dayList'),
 
 
 
-let selectMonth, selectYear;
+let selectMonth, selectYear, addDay, addMonth, addYear, addRate;
+
 const url = 'http://localhost:3000'
 
 async function onChange() {
@@ -30,6 +31,23 @@ async function getDataByDate(year, month) {
    const response = await axios.post(`${url}/get_data`, { year, month })
    return response.data
 }
+
+
+
+async function postData(addDay, addMonth, addYear, addTime, addRate) {
+   const response = await axios.post(`${url}/post_data`, { addDay, addMonth, addYear, addTime, addRate })
+   console.log(response.data);
+}
+
+async function addNewDay() {
+   addDay = document.getElementById('addDay').value
+   addMonth = document.getElementById('addMonth').value
+   addYear = document.getElementById('addYear').value
+   addTime = document.getElementById('addTime').value
+   addRate = document.getElementById('addRate').value
+   const res = await check(addDay, addMonth, addYear, addTime, addRate)
+}
+
 
 
 function clearData() {
