@@ -33,7 +33,6 @@ async function getDataByDate(year, month) {
 }
 
 
-
 async function postData(addDay, addMonth, addYear, addTime, addRate) {
    const response = await axios.post(`${url}/post_data`, { addDay, addMonth, addYear, addTime, addRate })
    console.log(response.data);
@@ -45,7 +44,7 @@ async function addNewDay() {
    addYear = document.getElementById('addYear').value
    addTime = document.getElementById('addTime').value
    addRate = document.getElementById('addRate').value
-   const res = await check(addDay, addMonth, addYear, addTime, addRate)
+   const res = await postData(addDay, addMonth, addYear, addTime, addRate)
 }
 
 
@@ -116,12 +115,7 @@ async function drawData(storage) {
 }
 drawData()
 
-elementFooterBtn.addEventListener('click', () => {
-   formAddDay.classList.toggle('show')
-   footerTitleBlock.classList.toggle('show')
-   if (footerTitleBlock.classList.contains('show')) elementFooterBtn.textContent = 'Скрыть'
-   else elementFooterBtn.textContent = 'Добавить день'
-})
+
 
 document.querySelectorAll('input[type="number"]').forEach(input => {
    input.oninput = () => {
@@ -129,60 +123,9 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
    }
 })
 
+function openModal() {
+   let modal = document.querySelector('.modal')
+   modal.classList.remove('hidden')
+}
+//openModal()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-
-
-   let arr = storage[year][month]
-   
-   console.log(arr);
- 
-   
-   
- 
-   
-*/

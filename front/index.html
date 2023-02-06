@@ -12,6 +12,61 @@
 
 <body>
    <div class="wrapper">
+      <div class="modal hidden">
+         <div class="modal__body">
+            <div class="modal__content">
+               <span class="modal__close">x</span>
+               <div class="modal__form select">
+                  <div class="modal__day">
+                     <label class="select__label" for="addDay">День</label>
+                     <input class="select__day" id="addDay" name="addDay" type="number" required min="1" max="31"
+                        maxlength="2" autocomplete="off">
+                  </div>
+                  <div class="modal__month">
+                     <label class="select__label" for="addMonth">Месяц</label>
+                     <select class="select__input" name="addMonth" id="addMonth">
+                        <option class="select__month-item" value="01">Январь</option>
+                        <option class="select__month-item" value="02">Февраль</option>
+                        <option class="select__month-item" value="03">Март</option>
+                        <option class="select__month-item" value="04">Апрель</option>
+                        <option class="select__month-item" value="05">Май</option>
+                        <option class="select__month-item" value="06">Июнь</option>
+                        <option class="select__month-item" value="07">Июль</option>
+                        <option class="select__month-item" value="08">Август</option>
+                        <option class="select__month-item" value="09">Сентябрь</option>
+                        <option class="select__month-item" value="10">Октябрь</option>
+                        <option class="select__month-item" value="11">Ноябрь</option>
+                        <option class="select__month-item" value="12">Декабрь</option>
+                     </select>
+                  </div>
+                  <div class="modal__year">
+                     <label class="select__label" for="addYear">Год</label>
+                     <select class="select__input" name="addYear" id="addYear">
+                        <option class="select__year-item" value="2022">2022</option>
+                        <option class="select__year-item" value="2023">2023</option>
+                     </select>
+                  </div>
+                  <div class="modal__time">
+                     <label class="select__label" for="addTime">Минут</label>
+                     <input class="select__day" id="addTime" name="addTime" type="number" required min="1" max="999"
+                        maxlength="3" autocomplete="off">
+                  </div>
+                  <div class="modal__rate">
+                     <label class="select__label" for="addRate">Оценка</label>
+                     <select class="select__input" name="addRate" id="addRate">
+                        <option class="select__rate-item" value="1">1</option>
+                        <option class="select__rate-item" value="2">2</option>
+                        <option class="select__rate-item" value="3">3</option>
+                        <option class="select__rate-item" value="4">4</option>
+                        <option class="select__rate-item" value="5">5</option>
+                     </select>
+                  </div>
+                  <button class="select__submit add-button" onclick="addNewDay()">Добавить день
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
       <header class="header">
          <div class="select">
             <label class="select__label" for="month">Выбрать месяц</label>
@@ -35,7 +90,7 @@
             </select>
          </div>
          <div class="call-modal">
-            <button class="call-modal__button">Добавить день</button>
+            <button class="call-modal__button" onclick="openModal()">Добавить день</button>
          </div>
       </header>
       <main class="main">
@@ -78,54 +133,13 @@
                </p>
             </div>
          </section>
+
          <div class="out-data hidden">
             <div class="out-data__title">Данные за <span class="out-data__span"></span> отсутствуют</div>
             <div class="out-data__text">Попробуйте выбрать другой месяц</div>
          </div>
       </main>
-      <footer class="footer">
-         <div class="footer__title hide">
-            <button class="footer__button">Добавить день</button>
-         </div>
-         <div class="select add hide">
-            <label class="select__label" for="addDay">День</label>
-            <input class="select__day" id="addDay" name="addDay" type="number" required min="1" max="31" maxlength="2"
-               autocomplete="off">
-            <label class="select__label" for="addMonth">Месяц</label>
-            <select class="select__input" name="addMonth" id="addMonth">
-               <option class="select__month-item" value="01">Январь</option>
-               <option class="select__month-item" value="02">Февраль</option>
-               <option class="select__month-item" value="03">Март</option>
-               <option class="select__month-item" value="04">Апрель</option>
-               <option class="select__month-item" value="05">Май</option>
-               <option class="select__month-item" value="06">Июнь</option>
-               <option class="select__month-item" value="07">Июль</option>
-               <option class="select__month-item" value="08">Август</option>
-               <option class="select__month-item" value="09">Сентябрь</option>
-               <option class="select__month-item" value="10">Октябрь</option>
-               <option class="select__month-item" value="11">Ноябрь</option>
-               <option class="select__month-item" value="12">Декабрь</option>
-            </select>
-            <label class="select__label" for="addYear">Год</label>
-            <select class="select__input" name="addYear" id="addYear">
-               <option class="select__year-item" value="2022">2022</option>
-               <option class="select__year-item" value="2023">2023</option>
-            </select>
-            <label class="select__label" for="addTime">Минут</label>
-            <input class="select__day" id="addTime" name="addTime" type="number" required min="1" max="999"
-               maxlength="3" autocomplete="off">
-            <label class="select__label" for="addRate">Оценка</label>
-            <select class="select__input" name="addRate" id="addRate">
-               <option class="select__rate-item" value="1">1</option>
-               <option class="select__rate-item" value="2">2</option>
-               <option class="select__rate-item" value="3">3</option>
-               <option class="select__rate-item" value="4">4</option>
-               <option class="select__rate-item" value="5">5</option>
-            </select>
-            <button class="select__submit add-button" onclick="addNewDay()">Добавить день
-            </button>
-         </div>
-      </footer>
+
    </div>
 </body>
 
