@@ -17,7 +17,7 @@ app.post('/get_data', (req, res) => {
    res.send(storage[year][month])
 })
 
-app.post('/post_data', (req, res) => {
+app.post('/post_data', (req, res, next) => {
    let day = req.body.addDay
    let month = req.body.addMonth
    let year = req.body.addYear
@@ -25,7 +25,16 @@ app.post('/post_data', (req, res) => {
    let rate = req.body.addRate
    const obj = { day, month, year, time, rate }
    console.log(obj);
-   res.send(obj)
+
+   if (!day || !year || isNaN(+day) || isNaN(+time) || isNaN(+rate) || +day > 31 || +day < 1 || +time < 1) {
+      res.send('Wrong Data')
+   } else {
+      res.send(obj)
+      storage[year][month].push({ day: day, time: time, rate: rate })  //пушу новые данные в массив
+      db.JSON(storage)  //кидаю их в хранилище
+      db.sync();        //синхронизирую
+      next()           //это чтобы нодмон не перезагружал страницу
+   }
 })
 
 

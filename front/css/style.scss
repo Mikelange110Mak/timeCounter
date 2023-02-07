@@ -198,6 +198,7 @@ body {
    flex-direction: column;
    padding: 0 5px;
    position: relative;
+   border-radius: 8px;
 
    .modal__close {
       cursor: pointer;
@@ -214,7 +215,7 @@ body {
    flex-wrap: wrap;
    gap: 5px;
 
-   div {
+   div:not(:last-of-type) {
       padding: 0 5px;
 
       display: flex;
@@ -232,6 +233,22 @@ body {
       margin: 0;
       flex: 0 1 100%;
    }
+
+}
+
+.modal__error {
+   height: 0%;
+   visibility: hidden;
+
+   color: #ac1d1d;
+   text-align: center;
+   font-size: 14px;
+}
+
+.show {
+   transition: 0.4s;
+   height: 10%;
+   visibility: visible;
 }
 
 .add {

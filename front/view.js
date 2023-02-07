@@ -11,7 +11,8 @@ const dayList = document.querySelector('.dayList'),
    outDataSpan = document.querySelector('.out-data__span'),
    elementFooterBtn = document.querySelector('.footer__button'),
    formAddDay = document.querySelector('.add'),
-   footerTitleBlock = document.querySelector('.footer__title')
+   footerTitleBlock = document.querySelector('.footer__title'),
+   modal = document.querySelector('.modal')
 
 
 
@@ -35,7 +36,13 @@ async function getDataByDate(year, month) {
 
 async function postData(addDay, addMonth, addYear, addTime, addRate) {
    const response = await axios.post(`${url}/post_data`, { addDay, addMonth, addYear, addTime, addRate })
-   console.log(response.data);
+   if (response.data === 'Wrong Data') {
+      let modalContent = document.querySelector('.modal__content')
+      let errorModal = document.querySelector('.modal__error')
+      errorModal.classList.add('show')
+      console.log('error');
+   }
+   else console.log(response.data);
 }
 
 async function addNewDay() {
@@ -124,8 +131,17 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
 })
 
 function openModal() {
-   let modal = document.querySelector('.modal')
    modal.classList.remove('hidden')
 }
-//openModal()
+function closeModal() {
+   modal.classList.add('hidden')
+}
 
+modal.addEventListener('click', (e) => {
+   let modalBody = document.querySelector('.modal__body')
+   if (e.target === modalBody || e.target === modal) closeModal()
+})
+
+document.addEventListener('keydown', (key) => {
+   if (key.code === 'Escape') closeModal()
+})

@@ -258,6 +258,7 @@ body {
           flex-direction: column;
   padding: 0 5px;
   position: relative;
+  border-radius: 8px;
 }
 
 .modal__content .modal__close {
@@ -279,7 +280,7 @@ body {
   gap: 5px;
 }
 
-.modal__form div {
+.modal__form div:not(:last-of-type) {
   padding: 0 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -296,7 +297,7 @@ body {
           align-items: center;
 }
 
-.modal__form div select {
+.modal__form div:not(:last-of-type) select {
   margin: 0;
 }
 
@@ -305,6 +306,22 @@ body {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 100%;
           flex: 0 1 100%;
+}
+
+.modal__error {
+  height: 0%;
+  visibility: hidden;
+  color: #ac1d1d;
+  text-align: center;
+  font-size: 14px;
+}
+
+.show {
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  height: 10%;
+  visibility: visible;
 }
 
 .add {

@@ -15,7 +15,7 @@
       <div class="modal hidden">
          <div class="modal__body">
             <div class="modal__content">
-               <span class="modal__close">x</span>
+               <span class="modal__close" onclick="closeModal()">x</span>
                <div class="modal__form select">
                   <div class="modal__day">
                      <label class="select__label" for="addDay">День</label>
@@ -60,6 +60,9 @@
                         <option class="select__rate-item" value="4">4</option>
                         <option class="select__rate-item" value="5">5</option>
                      </select>
+                  </div>
+                  <div class="modal__error">
+                     <p class="modal__error-text">Попробуйте ввести корректные данные!</p>
                   </div>
                   <button class="select__submit add-button" onclick="addNewDay()">Добавить день
                   </button>
