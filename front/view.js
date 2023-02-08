@@ -9,9 +9,7 @@ const dayList = document.querySelector('.dayList'),
    tableSection = document.querySelector('.table'),
    outDataSection = document.querySelector('.out-data'),
    outDataSpan = document.querySelector('.out-data__span'),
-   elementFooterBtn = document.querySelector('.footer__button'),
    formAddDay = document.querySelector('.add'),
-   footerTitleBlock = document.querySelector('.footer__title'),
    modal = document.querySelector('.modal')
 
 
@@ -37,12 +35,12 @@ async function getDataByDate(year, month) {
 async function postData(addDay, addMonth, addYear, addTime, addRate) {
    const response = await axios.post(`${url}/post_data`, { addDay, addMonth, addYear, addTime, addRate })
    if (response.data === 'Wrong Data') {
-      let modalContent = document.querySelector('.modal__content')
-      let errorModal = document.querySelector('.modal__error')
-      errorModal.classList.add('show')
-      console.log('error');
+      wrongData()
    }
-   else console.log(response.data);
+   else {
+      console.log(response.data);
+      correctData()
+   }
 }
 
 async function addNewDay() {
@@ -145,3 +143,36 @@ modal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (key) => {
    if (key.code === 'Escape') closeModal()
 })
+
+
+
+function wrongData() {
+   let modalContent = document.querySelector('.modal__content')
+   let errorModal = document.querySelector('.modal__error')
+   errorModal.classList.remove('hidden')
+   errorModal.classList.add('show')
+   modalContent.classList.add('shake')
+
+   console.log('error');
+   setTimeout(() => {
+      errorModal.classList.remove('show')
+      errorModal.classList.add('hidden')
+      modalContent.classList.remove('shake')
+   }, 650);
+}
+
+function correctData() {
+   let loadingBody = document.querySelector('.select__loading')
+   let loadingItem = document.querySelector('.select__loading-item')
+   loadingBody.classList.remove('hidden')
+   submitBtn.classList.add('hidden')
+   setTimeout(() => {
+      loadingItem.innerHTML = 'День успешно добавлен!'
+   }, 400);
+
+   setTimeout(() => {
+      loadingItem.innerHTML = ''
+      loadingBody.classList.add('hidden')
+      submitBtn.classList.remove('hidden')
+   }, 750);
+}

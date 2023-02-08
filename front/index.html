@@ -61,11 +61,14 @@
                         <option class="select__rate-item" value="5">5</option>
                      </select>
                   </div>
-                  <div class="modal__error">
-                     <p class="modal__error-text">Попробуйте ввести корректные данные!</p>
-                  </div>
                   <button class="select__submit add-button" onclick="addNewDay()">Добавить день
                   </button>
+                  <div class="select__loading hidden">
+                     <span class="select__loading-item"></span>
+                  </div>
+               </div>
+               <div class="modal__error hidden">
+                  Попробуйте ввести корректные данные!
                </div>
             </div>
          </div>
