@@ -256,15 +256,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 4px 5px;
+  padding: 9px 7px 3px;
   position: relative;
   border-radius: 8px;
 }
 
 .modal__content .modal__close {
+  font-size: 13px;
   cursor: pointer;
   position: absolute;
-  top: 0;
+  top: -2px;
   right: 1%;
 }
 
@@ -290,8 +291,8 @@ body {
           justify-content: space-between;
   text-align: center;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 60%;
-          flex: 0 1 60%;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -310,7 +311,6 @@ body {
 
 .modal__error {
   width: 100%;
-  padding: 1px 0;
   background: #cf3939;
   color: #ffeeee;
   text-align: center;
@@ -318,6 +318,9 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding: 2px 0;
 }
 
 .show {
@@ -328,6 +331,7 @@ body {
 }
 
 .select__loading {
+  margin-top: 4px;
   background: #feffff;
   width: 100%;
   min-height: 23px;
@@ -342,13 +346,13 @@ body {
   width: 100%;
   height: 100%;
   background-color: #2b9b3d;
-  -webkit-animation: loading 0.4s ease-in-out normal none;
-          animation: loading 0.4s ease-in-out normal none;
+  -webkit-animation: loading 0.6s ease-in-out normal none;
+          animation: loading 0.6s ease-in-out normal none;
 }
 
 @-webkit-keyframes loading {
   0% {
-    width: 5%;
+    width: 1%;
   }
   10% {
     width: 10%;
@@ -384,7 +388,7 @@ body {
 
 @keyframes loading {
   0% {
-    width: 5%;
+    width: 1%;
   }
   10% {
     width: 10%;

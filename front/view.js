@@ -9,15 +9,14 @@ const dayList = document.querySelector('.dayList'),
    tableSection = document.querySelector('.table'),
    outDataSection = document.querySelector('.out-data'),
    outDataSpan = document.querySelector('.out-data__span'),
-   formAddDay = document.querySelector('.add'),
    modal = document.querySelector('.modal')
-
 
 
 let selectMonth, selectYear, addDay, addMonth, addYear, addRate;
 
 const url = 'http://localhost:3000'
 
+//Обработка инпутов при выборе дня и месяца
 async function onChange() {
    selectMonth = document.getElementById('month').value
    selectYear = document.getElementById('year').value
@@ -26,23 +25,30 @@ async function onChange() {
    drawData(res)
 }
 
+//Обработка ответа от сервера (показать данные за месяц)
 async function getDataByDate(year, month) {
    const response = await axios.post(`${url}/get_data`, { year, month })
    return response.data
 }
 
-
+//Обработка ответа от сервера (добавление нового дня)
 async function postData(addDay, addMonth, addYear, addTime, addRate) {
    const response = await axios.post(`${url}/post_data`, { addDay, addMonth, addYear, addTime, addRate })
    if (response.data === 'Wrong Data') {
       wrongData()
+      clearForm()
    }
    else {
       console.log(response.data);
       correctData()
+      setTimeout(() => {
+         clearForm()
+      }, 500);
+
    }
 }
 
+//Данные из формы при добавлении нового дня
 async function addNewDay() {
    addDay = document.getElementById('addDay').value
    addMonth = document.getElementById('addMonth').value
@@ -53,7 +59,7 @@ async function addNewDay() {
 }
 
 
-
+//Очистка данных из таблицы
 function clearData() {
    dayList.innerHTML = ""
    timeList.innerHTML = ""
@@ -62,6 +68,8 @@ function clearData() {
    elementAverageRateSpan.innerHTML = ""
 }
 
+
+//Функция прорисовки таблицы
 async function drawData(storage) {
    console.log(storage);
    let timeCountArr = []
@@ -88,7 +96,7 @@ async function drawData(storage) {
          timeCountArr.push(el.time)
          rateCountArr.push(el.rate)
       }
-
+      //Подсчет средней оценки и среднего кол-ва затраченного времени:
       const timeCount = timeCountArr.reduce((a, b) => (a + b), 0)
       const rateCount = rateCountArr.reduce((a, b) => (a + b), 0)
       const averageTime = Math.round(timeCount / timeCountArr.length)
@@ -121,20 +129,23 @@ async function drawData(storage) {
 drawData()
 
 
-
+//Устранение стрелочек на инпутах с type ="number"
 document.querySelectorAll('input[type="number"]').forEach(input => {
    input.oninput = () => {
       if (input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength)
    }
 })
 
+//Открытие модалочки
 function openModal() {
    modal.classList.remove('hidden')
 }
+//Закрытие модалочки
 function closeModal() {
    modal.classList.add('hidden')
 }
 
+//Закрытие модалочки по доп кнопкам
 modal.addEventListener('click', (e) => {
    let modalBody = document.querySelector('.modal__body')
    if (e.target === modalBody || e.target === modal) closeModal()
@@ -145,7 +156,7 @@ document.addEventListener('keydown', (key) => {
 })
 
 
-
+//Визуал если ввел неверные данные (при добавлении нового дня)
 function wrongData() {
    let modalContent = document.querySelector('.modal__content')
    let errorModal = document.querySelector('.modal__error')
@@ -158,21 +169,36 @@ function wrongData() {
       errorModal.classList.remove('show')
       errorModal.classList.add('hidden')
       modalContent.classList.remove('shake')
-   }, 650);
+   }, 750);
 }
 
+//Визуал если ввел верные данные (при добавлении нового дня)
 function correctData() {
    let loadingBody = document.querySelector('.select__loading')
    let loadingItem = document.querySelector('.select__loading-item')
    loadingBody.classList.remove('hidden')
    submitBtn.classList.add('hidden')
    setTimeout(() => {
-      loadingItem.innerHTML = 'День успешно добавлен!'
-   }, 400);
+      loadingItem.innerHTML = 'День успешно добавлен! ✔'
+   }, 650);
 
    setTimeout(() => {
       loadingItem.innerHTML = ''
       loadingBody.classList.add('hidden')
       submitBtn.classList.remove('hidden')
-   }, 750);
+   }, 1050);
+}
+
+//Очистка инпутов
+function clearForm() {
+   let day = document.getElementById('addDay'),
+      month = document.getElementById('addMonth'),
+      year = document.getElementById('addYear'),
+      time = document.getElementById('addTime'),
+      rate = document.getElementById('addRate');
+   day.value = ''
+   month.value = '01'
+   year.value = '2022'
+   time.value = ''
+   rate.value = '1'
 }

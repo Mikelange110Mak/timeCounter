@@ -195,14 +195,15 @@ body {
    flex: 0 1 28%;
    border: 1px solid #333;
    flex-direction: column;
-   padding: 4px 5px;
+   padding: 9px 7px 3px;
    position: relative;
    border-radius: 8px;
 
    .modal__close {
+      font-size: 13px;
       cursor: pointer;
       position: absolute;
-      top: 0;
+      top: -2px;
       right: 1%;
    }
 }
@@ -211,6 +212,7 @@ body {
 
    display: flex;
    justify-content: center;
+
    flex-wrap: wrap;
    gap: 5px;
 
@@ -220,7 +222,7 @@ body {
       display: flex;
       justify-content: space-between;
       text-align: center;
-      flex: 0 1 60%;
+      flex: 0 1 100%;
       align-items: center;
 
       select {
@@ -237,7 +239,6 @@ body {
 
 .modal__error {
    width: 100%;
-   padding: 1px 0;
    background: #cf3939;
    color: #ffeeee;
    text-align: center;
@@ -245,6 +246,9 @@ body {
    position: absolute;
    bottom: 0;
    right: 0;
+   border-bottom-left-radius: 6px;
+   border-bottom-right-radius: 6px;
+   padding: 2px 0;
 }
 
 .show {
@@ -253,6 +257,7 @@ body {
 }
 
 .select__loading {
+   margin-top: 4px;
    background: #feffff;
    width: 100%;
    min-height: 23px;
@@ -267,12 +272,12 @@ body {
    width: 100%;
    height: 100%;
    background-color: #2b9b3d;
-   animation: loading 0.4s ease-in-out normal none;
+   animation: loading 0.6s ease-in-out normal none;
 }
 
 @keyframes loading {
    0% {
-      width: 5%;
+      width: 1%;
    }
 
    10% {
