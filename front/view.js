@@ -9,8 +9,8 @@ const dayList = document.querySelector('.dayList'),
    tableSection = document.querySelector('.table'),
    outDataSection = document.querySelector('.out-data'),
    outDataSpan = document.querySelector('.out-data__span'),
-   modal = document.querySelector('.modal')
-
+   modal = document.querySelector('.modal'),
+   modalContent = document.querySelector('.modal__content')
 
 let selectMonth, selectYear, addDay, addMonth, addYear, addRate;
 
@@ -139,10 +139,15 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
 //Открытие модалочки
 function openModal() {
    modal.classList.remove('hidden')
+   setTimeout(() => {
+      modalContent.classList.add('modalIn')
+   }, 0);
+
 }
 //Закрытие модалочки
 function closeModal() {
    modal.classList.add('hidden')
+   modalContent.classList.remove('modalIn')
 }
 
 //Закрытие модалочки по доп кнопкам
@@ -158,7 +163,6 @@ document.addEventListener('keydown', (key) => {
 
 //Визуал если ввел неверные данные (при добавлении нового дня)
 function wrongData() {
-   let modalContent = document.querySelector('.modal__content')
    let errorModal = document.querySelector('.modal__error')
    errorModal.classList.remove('hidden')
    errorModal.classList.add('show')
