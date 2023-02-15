@@ -291,7 +291,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 9px 7px 3px;
+  padding: 12px 8px 3px;
   position: relative;
   border-radius: 8px;
 }
@@ -333,11 +333,17 @@ body {
           align-items: center;
 }
 
+.modal__form div:not(:last-of-type) input {
+  border: 1px solid #bbb4b4;
+}
+
 .modal__form div:not(:last-of-type) select {
+  border: 1px solid #bbb4b4;
   margin: 0;
 }
 
 .modal__form button {
+  border: 1px solid #bbb4b4;
   margin: 4px 0 0 0;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 100%;
