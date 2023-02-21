@@ -25,24 +25,54 @@ body {
 
 //Project Styles:
 .header {
+   * {
+      font-size: 24px;
+
+      @media (max-width: 516.99px) {
+         font-size: 19px;
+      }
+   }
+
+   select {
+      padding: 4px 8px;
+      border-radius: 9px;
+      margin-right: 4px;
+      outline: none;
+   }
+
+   min-height: 8vh;
    background: #bdc3c7;
    background: linear-gradient(to right, #5e6d7c, #bdc3c7);
-
-
    display: flex;
-   flex-direction: row;
+   flex-wrap: wrap;
    justify-content: space-between;
-   padding: 0 15px;
+   padding: 10px 20px;
+   align-items: center;
+
 
    .call-modal {
+      @media (max-width: 417.99px) {
+         order: 1;
+      }
+
+      padding: 0 10px;
       display: flex;
       align-items: center;
 
       &__button {
-         padding: 4px 8px;
+         padding: 4px 9px;
          border-radius: 9px;
          cursor: pointer;
       }
+   }
+
+   @media (max-width: 516.99px) {
+      padding: 5px;
+   }
+
+   @media (max-width: 417.99px) {
+      justify-content: center;
+      gap: 15px;
    }
 
 }
@@ -135,44 +165,37 @@ body {
 }
 
 .select {
-   //flex: 0 1 50%;
-   padding: 10px 0;
+   @media (max-width: 417.99px) {
+      order: 2;
+   }
+
+   padding: 0 10px;
 
    &__label {
       padding: 0 10px;
+
+      @media (max-width: 719.99px) {
+         display: none;
+      }
    }
 
-   // .select__day
-
+   /*
    &__day {
       padding: 3px 5px;
       max-width: 45px;
       border-radius: 8px;
       outline: none;
    }
-
+*/
    // .select__input
-
+   /*
    &__input {
       padding: 3px 5px;
       border-radius: 6px;
       margin-right: 4px;
       outline: none;
    }
-
-   // .select__month-item
-
-   &__month-item {}
-
-   // .select__year-item
-
-   &__year-item {}
-
-   // .select__rate-item
-
-   &__rate-item {}
-
-   // .select__submit
+*/
 
    &__submit {
       padding: 4px 8px;
@@ -201,6 +224,10 @@ body {
       margin-top: 15%;
       display: flex;
       justify-content: center;
+   }
+
+   * {
+      font-size: 24px;
    }
 }
 
